@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorcycle Brands</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    header {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    .btn {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <marquee><h1>Motorcycle Brand List</h1></marquee>
+    </header>
+    <div class="container">
+        <div class="btn" id="pushs">
+            <h2>push() Method</h2>
+            <button onclick="thePush()">To Push</button>
+        </div>
+
+        <div class="btn" id="slices">
+            <h2>slice() Method</h2>
+            <button onclick="theSlice()">To slice</button>
+        </div>
+
+        <div class="btn" id="pops">
+            <h2>pop() Method</h2>
+            <button onclick="thePop()">To Pop</button>
+        </div>
+        
+        <div class="btn" id="listshoeb">
+            <h2>Motorcycle Brands</h2>
+            <button onclick="theDisplay()">Display List</button>
+            <div id="brandList"></div>
+        </div>
+    <script>
+        
+        let motorAv = ["Harley-Davidson", "Honda", "Kawasaki", "Yamaha", "Suzuki", "Ducati", "BMW"];
+
+        function theDisplay() {
+            const brandList = document.getElementById('brandList');
+            brandList.innerHTML = "";
+
+            const ul = document.createElement('ul');
+            motorAv.forEach(brand => {
+                const li = document.createElement('li');
+                li.textContent = brand;
+                ul.appendChild(li);
+            });
+
+            brandList.appendChild(ul);
+        }
+
+        function theSlice() {
+            let Slices = motorAv.slice(5);
+            alert("Current motorcycle brands: " + Slices.join(', ')) 
+        }
+
+        function thePush() {
+            motorAv.push("Rusi");
+            alert("New Motorcycle Brand is added. Updated list: " + motorAv.join(', '));
+        }
+
+        function thePop() {
+            let removedItem = motorAv.pop();
+            if (removedItem !== undefined) {
+                alert("Brand removed from the list: " + removedItem);
+            } else {
+                alert("List is empty.");
+            }
+        }
+
+    </script>
+</body>
+</html>
